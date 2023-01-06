@@ -1,8 +1,12 @@
 package com.example.hh_rest_test.entity;
 
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.ToString;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity(name = "members")
 @Getter

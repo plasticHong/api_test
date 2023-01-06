@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.0.1'
+    id 'org.springframework.boot' version '2.7.7'
     id 'io.spring.dependency-management' version '1.1.0'
 }
 
@@ -43,10 +43,15 @@ dependencies {
 
     implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.0'
 
+    // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+
+
+// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.9'
 
 
 
-    implementation "io.springfox:springfox-boot-starter:3.0.0"
 
 
 }
