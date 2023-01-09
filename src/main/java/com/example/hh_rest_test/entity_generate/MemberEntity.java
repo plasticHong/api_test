@@ -12,49 +12,36 @@ public class MemberEntity {
     @Id
     @Column(name = "id")
     private Long id;
-    @Basic
+
+
     @Column(name = "userid")
     private String userid;
-    @Basic
     @Column(name = "email")
     private String email;
-    @Basic
     @Column(name = "passwd")
     private String passwd;
-    @Basic
     @Column(name = "nickname")
     private String nickname;
-    @Basic
     @Column(name = "name")
     private String name;
-    @Basic
     @Column(name = "cellphone")
     private String cellphone;
-    @Basic
     @Column(name = "alarm_agree")
     private boolean alarmAgree;
-    @Basic
     @Column(name = "location")
     private String location;
-    @Basic
     @Column(name = "location_detail")
     private String locationDetail;
-    @Basic
     @Column(name = "birthday")
     private Date birthday;
-    @Basic
     @Column(name = "createtime")
     private Timestamp createtime;
-    @Basic
     @Column(name = "use_yn")
     private Boolean useYn;
-    @Basic
     @Column(name = "remark")
     private String remark;
-    @Basic
     @Column(name = "state")
     private Integer state;
-    @Basic
     @Column(name = "total_point")
     private Integer totalPoint;
 

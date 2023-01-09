@@ -6,7 +6,7 @@ import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 
-@Entity(name = "members_HH")
+@Entity(name = "HH_TEST_members")
 @Getter
 @ToString
 @DynamicInsert
