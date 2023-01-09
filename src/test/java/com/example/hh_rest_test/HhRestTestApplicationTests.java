@@ -1,6 +1,6 @@
 package com.example.hh_rest_test;
 
-import com.example.hh_rest_test.entity.MemberEntity;
+import com.example.hh_rest_test.somePack.MemberEntity;
 import com.example.hh_rest_test.repository.MemberRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

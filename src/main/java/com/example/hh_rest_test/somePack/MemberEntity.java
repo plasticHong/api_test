@@ -1,4 +1,4 @@
-package com.example.hh_rest_test.entity;
+package com.example.hh_rest_test.somePack;
 
 import lombok.Getter;
 import lombok.ToString;

@@ -2,7 +2,7 @@ package com.example.hh_rest_test.service;
 
 
 import com.example.hh_rest_test.dto.MemberDTO;
-import com.example.hh_rest_test.entity.MemberEntity;
+import com.example.hh_rest_test.somePack.MemberEntity;
 import com.example.hh_rest_test.repository.MemberRepository;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @AllArgsConstructor
 @Service
