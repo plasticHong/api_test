@@ -1,12 +1,12 @@
-package com.example.hh_rest_test.entity_generate;
+package com.example.hh_rest_test.entity.product;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "product_categori", schema = "bancha", catalog = "")
-public class ProductCategoriEntity {
+@Table(name = "product_hashtag", schema = "bancha", catalog = "")
+public class ProductHashtagEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
@@ -15,11 +15,8 @@ public class ProductCategoriEntity {
     @Column(name = "product_id")
     private int productId;
     @Basic
-    @Column(name = "categori_id")
-    private int categoriId;
-    @Basic
-    @Column(name = "seq")
-    private int seq;
+    @Column(name = "tagname")
+    private String tagname;
     @Basic
     @Column(name = "createtime")
     private Timestamp createtime;
@@ -40,20 +37,12 @@ public class ProductCategoriEntity {
         this.productId = productId;
     }
 
-    public int getCategoriId() {
-        return categoriId;
+    public String getTagname() {
+        return tagname;
     }
 
-    public void setCategoriId(int categoriId) {
-        this.categoriId = categoriId;
-    }
-
-    public int getSeq() {
-        return seq;
-    }
-
-    public void setSeq(int seq) {
-        this.seq = seq;
+    public void setTagname(String tagname) {
+        this.tagname = tagname;
     }
 
     public Timestamp getCreatetime() {
@@ -68,12 +57,12 @@ public class ProductCategoriEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ProductCategoriEntity that = (ProductCategoriEntity) o;
-        return id == that.id && productId == that.productId && categoriId == that.categoriId && seq == that.seq && Objects.equals(createtime, that.createtime);
+        ProductHashtagEntity that = (ProductHashtagEntity) o;
+        return id == that.id && productId == that.productId && Objects.equals(tagname, that.tagname) && Objects.equals(createtime, that.createtime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, productId, categoriId, seq, createtime);
+        return Objects.hash(id, productId, tagname, createtime);
     }
 }

@@ -1,19 +1,25 @@
-package com.example.hh_rest_test.entity_generate;
+package com.example.hh_rest_test.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "refund_type", schema = "bancha", catalog = "")
-public class RefundTypeEntity {
+@Table(name = "banner", schema = "bancha", catalog = "")
+public class BannerEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private int id;
     @Basic
-    @Column(name = "name")
-    private String name;
+    @Column(name = "title")
+    private String title;
+    @Basic
+    @Column(name = "image_url")
+    private String imageUrl;
+    @Basic
+    @Column(name = "url")
+    private String url;
     @Basic
     @Column(name = "remark")
     private String remark;
@@ -32,12 +38,28 @@ public class RefundTypeEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getRemark() {
@@ -68,12 +90,12 @@ public class RefundTypeEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        RefundTypeEntity that = (RefundTypeEntity) o;
-        return id == that.id && Objects.equals(name, that.name) && Objects.equals(remark, that.remark) && Objects.equals(createtime, that.createtime) && Objects.equals(useYn, that.useYn);
+        BannerEntity that = (BannerEntity) o;
+        return id == that.id && Objects.equals(title, that.title) && Objects.equals(imageUrl, that.imageUrl) && Objects.equals(url, that.url) && Objects.equals(remark, that.remark) && Objects.equals(createtime, that.createtime) && Objects.equals(useYn, that.useYn);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, remark, createtime, useYn);
+        return Objects.hash(id, title, imageUrl, url, remark, createtime, useYn);
     }
 }

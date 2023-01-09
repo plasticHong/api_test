@@ -1,12 +1,10 @@
-package com.example.hh_rest_test.entity;
+package com.example.hh_rest_test.test_entity;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.assertj.core.api.FactoryBasedNavigableListAssert.assertThat;
 
 
 @SpringBootTest

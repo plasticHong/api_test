@@ -1,28 +1,29 @@
-package com.example.hh_rest_test.entity_generate;
+package com.example.hh_rest_test.entity.product;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "product_section", schema = "bancha", catalog = "")
-public class ProductSectionEntity {
+@Table(name = "product_sale_exception", schema = "bancha", catalog = "")
+public class ProductSaleExceptionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private int id;
     @Basic
-    @Column(name = "title")
-    private String title;
+    @Column(name = "product_id")
+    private int productId;
+    @Basic
+    @Column(name = "ex_sale_date")
+    private Date exSaleDate;
     @Basic
     @Column(name = "createtime")
     private Timestamp createtime;
     @Basic
     @Column(name = "remark")
     private String remark;
-    @Basic
-    @Column(name = "use_yn")
-    private Boolean useYn;
 
     public int getId() {
         return id;
@@ -32,12 +33,20 @@ public class ProductSectionEntity {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
+    public Date getExSaleDate() {
+        return exSaleDate;
+    }
+
+    public void setExSaleDate(Date exSaleDate) {
+        this.exSaleDate = exSaleDate;
     }
 
     public Timestamp getCreatetime() {
@@ -56,24 +65,16 @@ public class ProductSectionEntity {
         this.remark = remark;
     }
 
-    public Boolean getUseYn() {
-        return useYn;
-    }
-
-    public void setUseYn(Boolean useYn) {
-        this.useYn = useYn;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ProductSectionEntity that = (ProductSectionEntity) o;
-        return id == that.id && Objects.equals(title, that.title) && Objects.equals(createtime, that.createtime) && Objects.equals(remark, that.remark) && Objects.equals(useYn, that.useYn);
+        ProductSaleExceptionEntity that = (ProductSaleExceptionEntity) o;
+        return id == that.id && productId == that.productId && Objects.equals(exSaleDate, that.exSaleDate) && Objects.equals(createtime, that.createtime) && Objects.equals(remark, that.remark);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, createtime, remark, useYn);
+        return Objects.hash(id, productId, exSaleDate, createtime, remark);
     }
 }

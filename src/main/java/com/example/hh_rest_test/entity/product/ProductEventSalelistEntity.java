@@ -1,4 +1,4 @@
-package com.example.hh_rest_test.entity_generate;
+package com.example.hh_rest_test.entity.product;
 
 import javax.persistence.*;
 import java.util.Objects;
