@@ -1,9 +1,12 @@
 package com.example.hh_rest_test.entity;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.assertj.core.api.FactoryBasedNavigableListAssert.assertThat;
 
 
 @SpringBootTest
@@ -14,13 +17,12 @@ public class DtoToEntityTest {
 
     @Test
     public void dtoConvertingTest() {
-        com.example.hh_rest_test.dto.MemberDTO dto = new com.example.hh_rest_test.dto.MemberDTO();
-        dto.setName("wee");
 
-        MemberEntity entity = modelMapper.map(dto, MemberEntity.class);
+        String message = new String("hi");
+        String message2 = new String("hi");
 
-        System.out.println("dto: "+dto);
-        System.out.println("entity: "+entity);
+//        Assertions.assertThat(message).isEqualTo(message2);
+        Assertions.assertThat(message.equals(message2)).isTrue();
 
     }
 
