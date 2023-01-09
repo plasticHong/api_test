@@ -11,14 +11,15 @@ public class MemberPointEntity {
     @Column(name = "id")
     private Long id;
 
-//    @Column(name = "member_id")
-    @ManyToOne
-    @JoinColumn(name = "member_id")
-    private MemberEntity memberId;
+    @Column(name = "member_id")
+//    @ManyToOne
+//    @JoinColumn(name = "member_id")
+    private Long memberId;
 
-    @OneToOne
-    @JoinColumn(name = "point_type_id")
-    private MemberPointTypeEntity pointTypeId;
+//    @OneToOne
+//    @JoinColumn(name = "point_type_id")
+    @Column(name = "point_type_id")
+    private Long pointTypeId;
 
 
     @Basic
@@ -33,19 +34,19 @@ public class MemberPointEntity {
         this.id = id;
     }
 
-    public MemberEntity getMemberId() {
+    public Long getMemberId() {
         return memberId;
     }
 
-    public void setMemberId(MemberEntity memberId) {
+    public void setMemberId(Long memberId) {
         this.memberId = memberId;
     }
 
-    public MemberPointTypeEntity getPointTypeId() {
+    public Long getPointTypeId() {
         return pointTypeId;
     }
 
-    public void setPointTypeId(MemberPointTypeEntity pointTypeId) {
+    public void setPointTypeId(Long pointTypeId) {
         this.pointTypeId = pointTypeId;
     }
 
