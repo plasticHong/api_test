@@ -2,15 +2,14 @@ package com.example.hh_rest_test.entity;
 
 import lombok.Getter;
 import lombok.ToString;
+import org.hibernate.annotations.DynamicInsert;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity(name = "members")
+@Entity(name = "members_HH")
 @Getter
 @ToString
+@DynamicInsert
 public class MemberEntity extends BaseTimeEntity{
 
     @Id
@@ -32,6 +31,9 @@ public class MemberEntity extends BaseTimeEntity{
     private String location;
 
     private String locationDetail;
+
+    @Column(columnDefinition = "boolean default true",nullable = false)
+    private boolean use_YN;
 
 
     public void memberInfoUpdate(MemberEntity memberEntity){
