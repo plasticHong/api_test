@@ -1,4 +1,4 @@
-package com.example.hh_rest_test.somePack;
+package com.example.hh_rest_test.test_entity;
 
 import lombok.Data;
 

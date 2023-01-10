@@ -1,6 +1,7 @@
-package com.example.hh_rest_test.somePack;
+package com.example.hh_rest_test.entity.base;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -12,7 +13,6 @@ import javax.persistence.PreUpdate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-@Getter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseTimeEntity {
@@ -34,4 +34,16 @@ public abstract class BaseTimeEntity {
     public void onPreUpdate(){
         this.modifiedTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
     }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+
+
+    public String getModifiedTime() {
+        return modifiedTime;
+    }
+
+
 }

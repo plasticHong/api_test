@@ -1,37 +1,41 @@
-package com.example.hh_rest_test.dto;
-
+package com.example.hh_rest_test.dto.request;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import java.sql.Date;
 
+@Builder
 @Data
 @Valid
-@NoArgsConstructor
-@Schema(description = "회원 정보",name = "member")
-public class MemberDTO {
+public class MemberRegisterRequestDTO {
 
-    @Schema(description = "PK 자동 증가값")
-    private Long id;
     @Email      //email 형식만 허용
     @Schema(description = "이메일",name = "email")
     private String email;
+    @NotBlank
     private String password;
-
     @NotBlank    //  "", " ", null 허용x
     private String name;
-
+    @NotBlank
     private String nickName;
-    private String phoneNumber;
+    @NotBlank
+    private String cellphone;
     private boolean alarm_agree;
+    @NotBlank
     private String location;
+    @NotBlank
     private String locationDetail;
+    private Date birthday;
     private String createTime;
     private String modifiedTime;
+
 
 
 }

@@ -1,5 +1,6 @@
-package com.example.hh_rest_test.somePack;
+package com.example.hh_rest_test.test_entity;
 
+import com.example.hh_rest_test.entity.base.BaseTimeEntity;
 import lombok.Getter;
 import lombok.ToString;
 import org.hibernate.annotations.DynamicInsert;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @ToString
 @DynamicInsert
-public class MemberEntity extends BaseTimeEntity{
+public class MemberTestEntity extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,10 +37,10 @@ public class MemberEntity extends BaseTimeEntity{
     private boolean use_YN;
 
 
-    public void memberInfoUpdate(MemberEntity memberEntity){
-        this.nickName = memberEntity.nickName;
-        this.alarm_agree = memberEntity.alarm_agree;
-        this.phoneNumber = memberEntity.phoneNumber;
+    public void memberInfoUpdate(MemberTestEntity memberTestEntity){
+        this.nickName = memberTestEntity.nickName;
+        this.alarm_agree = memberTestEntity.alarm_agree;
+        this.phoneNumber = memberTestEntity.phoneNumber;
     }
 
 

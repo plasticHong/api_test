@@ -1,6 +1,6 @@
 package com.example.hh_rest_test.controller;
 
-import com.example.hh_rest_test.somePack.Book;
+import com.example.hh_rest_test.test_entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

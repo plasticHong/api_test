@@ -1,13 +1,13 @@
 package com.example.hh_rest_test.entity.member;
 
+import com.example.hh_rest_test.entity.base.BaseTimeEntity;
+
 import javax.persistence.*;
 import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.Objects;
 
 @Entity
 @Table(name = "member", schema = "bancha", catalog = "")
-public class MemberEntity {
+public class MemberEntity extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
@@ -34,8 +34,9 @@ public class MemberEntity {
     private String locationDetail;
     @Column(name = "birthday")
     private Date birthday;
-    @Column(name = "createtime")
-    private Timestamp createtime;
+
+//    @Column(name = "createtime")
+//    private Timestamp createtime;
     @Column(name = "use_yn")
     private Boolean useYn;
     @Column(name = "remark")
@@ -133,13 +134,13 @@ public class MemberEntity {
         this.birthday = birthday;
     }
 
-    public Timestamp getCreatetime() {
-        return createtime;
-    }
+//    public Timestamp getCreatetime() {
+//        return createtime;
+//    }
 
-    public void setCreatetime(Timestamp createtime) {
-        this.createtime = createtime;
-    }
+//    public void setCreatetime(Timestamp createtime) {
+//        this.createtime = createtime;
+//    }
 
     public Boolean getUseYn() {
         return useYn;
@@ -173,16 +174,17 @@ public class MemberEntity {
         this.totalPoint = totalPoint;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        MemberEntity that = (MemberEntity) o;
-        return id == that.id && alarmAgree == that.alarmAgree && Objects.equals(userid, that.userid) && Objects.equals(email, that.email) && Objects.equals(passwd, that.passwd) && Objects.equals(nickname, that.nickname) && Objects.equals(name, that.name) && Objects.equals(cellphone, that.cellphone) && Objects.equals(location, that.location) && Objects.equals(locationDetail, that.locationDetail) && Objects.equals(birthday, that.birthday) && Objects.equals(createtime, that.createtime) && Objects.equals(useYn, that.useYn) && Objects.equals(remark, that.remark) && Objects.equals(state, that.state) && Objects.equals(totalPoint, that.totalPoint);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        MemberEntity that = (MemberEntity) o;
+//        return id == that.id && alarmAgree == that.alarmAgree && Objects.equals(userid, that.userid) && Objects.equals(email, that.email) && Objects.equals(passwd, that.passwd) && Objects.equals(nickname, that.nickname) && Objects.equals(name, that.name) && Objects.equals(cellphone, that.cellphone) && Objects.equals(location, that.location) && Objects.equals(locationDetail, that.locationDetail) && Objects.equals(birthday, that.birthday) && Objects.equals(createtime, that.createtime) && Objects.equals(useYn, that.useYn) && Objects.equals(remark, that.remark) && Objects.equals(state, that.state) && Objects.equals(totalPoint, that.totalPoint);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, userid, email, passwd, nickname, name, cellphone, alarmAgree, location, locationDetail, birthday, createtime, useYn, remark, state, totalPoint);
+//    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, userid, email, passwd, nickname, name, cellphone, alarmAgree, location, locationDetail, birthday, createtime, useYn, remark, state, totalPoint);
-    }
 }

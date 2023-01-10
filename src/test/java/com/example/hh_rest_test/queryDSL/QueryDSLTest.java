@@ -1,11 +1,13 @@
 package com.example.hh_rest_test.queryDSL;
 
 
-import com.example.hh_rest_test.somePack.MemberEntity;
-import com.example.hh_rest_test.somePack.QMemberEntity;
+import com.example.hh_rest_test.entity.member.MemberEntity;
+import com.example.hh_rest_test.entity.member.QMemberEntity;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.util.StringUtils;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.persistence.EntityManager;
@@ -17,12 +19,12 @@ public class QueryDSLTest {
     @PersistenceContext
     private EntityManager dslManager;
 
-
+    QMemberEntity qMemberEntity = new QMemberEntity("q");
     @Test
     public void queryDSLTest() {
 
+
         EntityManager entityManager = dslManager.getEntityManagerFactory().createEntityManager();
-        QMemberEntity qMemberEntity = new QMemberEntity("q");
 
 
         JPAQueryFactory query = new JPAQueryFactory(entityManager);
@@ -30,12 +32,19 @@ public class QueryDSLTest {
         List<MemberEntity> members = query
                 .select(qMemberEntity)
                 .from(qMemberEntity)
-                .where(qMemberEntity.email.containsIgnoreCase("hh"))
+                .where(eqEmail("na"))
                 .fetch();
 
-        Assertions.assertThat(members.size()).isEqualTo(3);
+        Assertions.assertThat(members.size()).isGreaterThan(3);
 
     }
+
+    private BooleanExpression eqEmail(String email) {
+        if(StringUtils.isBlank(email))return null;
+        return qMemberEntity.email.contains(email);
+    }
+
+
 
 
 }

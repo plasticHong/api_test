@@ -3,6 +3,7 @@ package com.example.hh_rest_test.controller;
 
 import com.example.hh_rest_test.api_doc.BasicApiResponse;
 import com.example.hh_rest_test.dto.MemberDTO;
+import com.example.hh_rest_test.dto.request.MemberRegisterRequestDTO;
 import com.example.hh_rest_test.service.MemberService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -33,12 +34,14 @@ public class MemberController {
     @RequestMapping(method = RequestMethod.GET, value = "/save")
     public ResponseEntity<?> save(
                                     @Parameter(name = "member",description = "멤버 정보",schema = @Schema(implementation = MemberDTO.class))
-                                    @RequestBody @Valid MemberDTO memberDTO) {
+                                    @RequestBody @Valid MemberRegisterRequestDTO memberDTO) {
 
         MemberDTO savedMemberDTO = memberService.memberJoin(memberDTO);
 
         return new ResponseEntity<>(savedMemberDTO, HttpStatus.OK);
     }
+
+
     @BasicApiResponse
     @RequestMapping(method = RequestMethod.GET, value = "/update")
     public ResponseEntity<?> update(@RequestBody MemberDTO newMemberInfoDto) {
