@@ -68,10 +68,6 @@ dependencies {
 // https://mvnrepository.com/artifact/com.querydsl/querydsl-apt
     implementation group: 'com.querydsl', name: 'querydsl-apt', version: '5.0.0'
 
-//    annotationProcessor(
-//            "javax.persistence:javax.persistence-api",
-//            "javax.annotation:javax.annotation-api",
-//            "com.querydsl:querydsl-apt:5.0.0:jpa")
 
 }
 
@@ -98,11 +94,6 @@ configurations {
     }
     querydsl.extendsFrom compileClasspath
 }
-//
-//compileQuerydsl.doFirst {
-//    if(file(querydslDir).exists() )
-//        delete(file(querydslDir))
-//}
 
 
 tasks.named('test') {

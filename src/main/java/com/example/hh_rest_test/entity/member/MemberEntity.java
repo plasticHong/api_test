@@ -1,18 +1,20 @@
 package com.example.hh_rest_test.entity.member;
 
 import com.example.hh_rest_test.entity.base.BaseTimeEntity;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "member", schema = "bancha", catalog = "")
+@DynamicInsert
 public class MemberEntity extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private Long id;
-
 
     @Column(name = "userid")
     private String userid;
@@ -37,14 +39,21 @@ public class MemberEntity extends BaseTimeEntity {
 
 //    @Column(name = "createtime")
 //    private Timestamp createtime;
-    @Column(name = "use_yn")
+    @Column(name = "use_yn",columnDefinition = "boolean default true")
     private Boolean useYn;
     @Column(name = "remark")
     private String remark;
-    @Column(name = "state")
+    @Column(name = "state",columnDefinition = "int default 0")
     private Integer state;
     @Column(name = "total_point")
     private Integer totalPoint;
+
+    @Override
+    public void onPrePersist() {
+        super.onPrePersist();
+        if(Objects.isNull(this.state)) this.state = 1;
+        if(Objects.isNull(this.useYn)) this.useYn = true;
+    }
 
     public Long getId() {
         return id;

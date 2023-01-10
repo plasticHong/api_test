@@ -22,16 +22,18 @@ public class BaseEntityTest {
     public void memberInsertTest() {
 
         MemberEntity member = new MemberEntity();
-        member.setEmail("asd@naver.com");
+        member.setEmail("dddd@naver.com");
         member.setName("모세");
-        member.setLocation("아프리카");
+        member.setLocation("서울");
+        member.setLocationDetail("동작구");
         member.setUserid("meme");
 
         MemberEntity savedMember = repository.save(member);
 
 
         Assertions.assertThat(savedMember).isEqualTo(member);
-
+        Assertions.assertThat(savedMember.getCreateTime()).isEqualTo(member.getCreateTime());
+        Assertions.assertThat(savedMember.getState()).isEqualTo(1);
 
     }
 
