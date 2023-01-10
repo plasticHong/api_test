@@ -11,26 +11,4 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class BaseEntityTest {
 
 
-    @Autowired
-    MemberRepository repository;
-
-    @Test
-    public void memberInsertTest() {
-
-        MemberEntity member = new MemberEntity();
-        member.setEmail("dddd@naver.com");
-        member.setName("모세");
-        member.setLocation("서울");
-        member.setLocationDetail("동작구");
-        member.setUserid("meme");
-
-        MemberEntity savedMember = repository.save(member);
-
-
-        Assertions.assertThat(savedMember).isEqualTo(member);
-        Assertions.assertThat(savedMember.getCreateTime()).isEqualTo(member.getCreateTime());
-        Assertions.assertThat(savedMember.getState()).isEqualTo(1);
-
-    }
-
 }

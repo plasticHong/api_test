@@ -3,6 +3,7 @@ package com.example.entity.member;
 import com.example.dto.request.MemberRegisterRequestDTO;
 import com.example.entity.base.BaseTimeEntity;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.DynamicInsert;
 
