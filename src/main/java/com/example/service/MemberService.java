@@ -6,6 +6,7 @@ import com.example.dto.request.MemberRegisterRequestDTO;
 import com.example.dto.response.MemberInfoResponseDTO;
 import com.example.entity.member.MemberEntity;
 import com.example.repository.MemberRepository;
+import com.example.repository.MemberRepositoryImpl;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,8 @@ import java.util.Optional;
 @Slf4j
 public class MemberService {
     MemberRepository repo;
+
+    MemberRepositoryImpl customRepo;
     ModelMapper modelMapper;
 
 
@@ -60,7 +63,18 @@ public class MemberService {
     }
 
     public boolean emailDuplicateCheck(String email) {
-        return repo.findIdByEmail(email).isPresent();
+
+        /*
+        * useYn 관계없이 검색
+        * */
+//        return repo.findIdByEmail(email).isPresent();
+
+
+        /*
+        * useYn : true 만 검색
+        * */
+        return customRepo.findIdByEmail(email).isPresent();
+
     }
 
 }

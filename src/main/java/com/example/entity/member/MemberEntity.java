@@ -3,7 +3,6 @@ package com.example.entity.member;
 import com.example.dto.request.MemberRegisterRequestDTO;
 import com.example.entity.base.BaseTimeEntity;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.DynamicInsert;
 
@@ -22,15 +21,15 @@ public class MemberEntity extends BaseTimeEntity {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "userid")
+    @Column(name = "userid",updatable = false)
     private String userid;
-    @Column(name = "email")
+    @Column(name = "email",updatable = false)
     private String email;
     @Column(name = "passwd")
     private String passwd;
     @Column(name = "nickname")
     private String nickname;
-    @Column(name = "name")
+    @Column(name = "name",updatable = false)
     private String name;
     @Column(name = "cellphone")
     private String cellphone;
@@ -42,9 +41,6 @@ public class MemberEntity extends BaseTimeEntity {
     private String locationDetail;
     @Column(name = "birthday")
     private Date birthday;
-
-//    @Column(name = "createtime")
-//    private Timestamp createtime;
     @Column(name = "use_yn",columnDefinition = "boolean default true")
     private Boolean useYn;
     @Column(name = "remark")

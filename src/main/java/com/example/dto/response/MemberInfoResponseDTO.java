@@ -27,13 +27,13 @@ public class MemberInfoResponseDTO {
     private String nickName;
     @Schema(description = "휴대폰",example = "010-9999-9999")
     private String cellphone;
-
     @Schema(description = "알람 동의여부")
     private boolean alarm_agree;
     @Schema(description = "주소",example = "주소")
     private String location;
     @Schema(description = "상세주소",example = "상세주소")
     private String locationDetail;
+    @Schema(description = "생년월일",example = "yyyy-MM-dd")
     private Date birthday;
     private String createTime;
 

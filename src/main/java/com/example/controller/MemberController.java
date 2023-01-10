@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,7 +45,7 @@ public class MemberController {
     }
 
 
-    @Operation(summary = "회원정보 요청",description = "회원정보 요청")
+    @Operation(summary = "회원정보 요청",description = "해당 유저의 정보를 조희 key: email")
     @BasicApiResponse
     @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = MemberInfoResponseDTO.class)))
     @RequestMapping(method = RequestMethod.GET, value = "/info")
@@ -60,6 +61,7 @@ public class MemberController {
     }
 
 
+    @Operation(summary = "회원정보 수정",description = "해당 유저의 정보를 수정 key: email")
     @BasicApiResponse
     @RequestMapping(method = RequestMethod.POST, value = "/update")
     public ResponseEntity<?> update(@Parameter(name = "email",description = "해당 유저의 정보를 조회함")
@@ -70,10 +72,11 @@ public class MemberController {
         return new ResponseEntity<>(updatedMemberInfoDTO, HttpStatus.OK);
     }
 
+    @Operation(summary = "email 중복확인",description = "해당 email 이 이미 존재할 경우 true")
     @BasicApiResponse
     @RequestMapping(method = RequestMethod.GET, value = "/emailCheck")
     public ResponseEntity<?> Check(@Parameter(name = "email", description = "중복확인용 email")
-                                   @RequestParam String email) {
+                                   @RequestParam(value = "email") String email) {
 
         boolean isDuplicated = memberService.emailDuplicateCheck(email);
 

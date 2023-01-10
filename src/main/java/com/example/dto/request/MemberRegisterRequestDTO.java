@@ -17,8 +17,8 @@ public class MemberRegisterRequestDTO {
 
     /*
     *
-    * 회원가입 요청용 dto
     *
+    *  회원가입,정보수정 요청용 dto
     *
     * */
 
