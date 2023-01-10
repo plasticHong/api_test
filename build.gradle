@@ -52,7 +52,7 @@ dependencies {
     // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
     compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
 
-
+// swagger
 // https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
     implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.9'
 
@@ -74,14 +74,16 @@ dependencies {
 
 
 def querydslDir = "$buildDir/generated/querydsl"
+def generatedClassesPath= "build/generated/source/querydsl/main"
 // JPA 사용 여부와 사용할 경로를 설정
 querydsl {
     jpa = true
-    querydslSourcesDir = querydslDir
+    querydslSourcesDir = generatedClassesPath
 }
 // build 시 사용할 sourceSet 추가
+def queryDslOutput = file(generatedClassesPath)
 sourceSets {
-    main.java.srcDir querydslDir
+    main.java.srcDir queryDslOutput
 }
 // querydsl 컴파일시 사용할 옵션 설정
 compileQuerydsl{
